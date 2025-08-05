@@ -1,4 +1,4 @@
-//Daniel Henrique da Silva, Gabriel Henrique da Silva, Jorge Luiz Siemann Pereira, Lucas dos Santos Luckow
+// Daniel Henrique da Silva, Gabriel Henrique da Silva, Jorge Luiz Siemann Pereira, Lucas dos Santos Luckow
 
 #include <iostream>
 #include <time.h>
