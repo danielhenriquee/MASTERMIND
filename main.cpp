@@ -13,119 +13,125 @@ using namespace std;
 
 int main(){
   #ifdef _WIN32
-    system("chcp 65001 > nul"); // Para suportar acentos no terminal do Windows
+    system("chcp 65001 > nul"); // To support accents in Windows terminal
   #endif
   setlocale(LC_ALL, "pt_BR.UTF-8");
   srand(time(NULL));
   
   int menu;
-  float cont;
+  char temp;
   
   do {
-    cout << "\n\n\n ███╗   ███╗ █████╗ ███████╗████████╗███████╗██████╗ ███╗   ███╗██╗███╗   ██╗██████╗\n"
-            " ████╗ ████║██╔══██╗██╔════╝╚══██╔══╝██╔════╝██╔══██╗████╗ ████║██║████╗  ██║██╔══██╗\n"
-            " ██╔████╔██║███████║███████╗   ██║   █████╗  ██████╔╝██╔████╔██║██║██╔██╗ ██║██║  ██║\n"
-            " ██║╚██╔╝██║██╔══██║╚════██║   ██║   ██╔══╝  ██╔══██╗██║╚██╔╝██║██║██║╚██╗██║██║  ██║\n"
-            " ██║ ╚═╝ ██║██║  ██║███████║   ██║   ███████╗██║  ██║██║ ╚═╝ ██║██║██║ ╚████║██████╔╝\n"
-            " ╚═╝     ╚═╝╚═╝  ╚═╝╚══════╝   ╚═╝   ╚══════╝╚═╝  ╚═╝╚═╝     ╚═╝╚═╝╚═╝  ╚═══╝╚═════╝\n\n";
+    cout << "\n\n\n ██████   ██████   █████████    █████████  ███████████ ██████████ ███████████     ██████   ██████ █████ ██████   █████ ██████████  \n"
+            "░░██████ ██████   ███░░░░░███  ███░░░░░███░█░░░███░░░█░░███░░░░░█░░███░░░░░███   ░░██████ ██████ ░░███ ░░██████ ░░███ ░░███░░░░███ \n"
+            " ░███░█████░███  ░███    ░███ ░███    ░░░ ░   ░███  ░  ░███  █ ░  ░███    ░███    ░███░█████░███  ░███  ░███░███ ░███  ░███   ░░███\n"
+            " ░███░░███ ░███  ░███████████ ░░█████████     ░███     ░██████    ░██████████     ░███░░███ ░███  ░███  ░███░░███░███  ░███    ░███\n"
+            " ░███ ░░░  ░███  ░███░░░░░███  ░░░░░░░░███    ░███     ░███░░█    ░███░░░░░███    ░███ ░░░  ░███  ░███  ░███ ░░██████  ░███    ░███\n"
+            " ░███      ░███  ░███    ░███  ███    ░███    ░███     ░███ ░   █ ░███    ░███    ░███      ░███  ░███  ░███  ░░█████  ░███    ███ \n"
+            " █████     █████ █████   █████░░█████████     █████    ██████████ █████   █████    █████     █████ █████ █████  ░░█████ ██████████ \n"   
+            "░░░░░     ░░░░░ ░░░░░   ░░░░░  ░░░░░░░░░     ░░░░░    ░░░░░░░░░░ ░░░░░   ░░░░░    ░░░░░     ░░░░░ ░░░░░ ░░░░░    ░░░░░ ░░░░░░░░░░  \n\n"
+                                                                               
+                                                                               
+                                                                               
 
-    cout << "   1.  Jogar \n"
-            "   2.  SOBRE \n"
-            "   3.  SAIR  \n\n\n";
+
+    cout << "   1.  PLAY \n"
+            "   2.  ABOUT\n"
+            "   3.  EXIT \n\n\n";
     cin >> menu;
-    int ganhou = 0;
+    int won = 0;
     
     switch (menu) {
       case 1:
-        int digito1, digito2, digito3, digito4; // digitos aleatórios
-        int tentativa, d1, d2, d3, d4; // tentativas
-        int ce, cc; // ce = dígito certo e posição errada; cc = dígito certo
+        int digit1, digit2, digit3, digit4; // Random digits
+        int attempt, a1, a2, a3, a4; // Attempts
+        int cc, cw; // CdCp = Correct digit && Correct position // CdWp = Correct digit && Wrong position
 
         do {
           do {
-            digito1 = rand()%6+1; // gerar primeiro algarismo 'aleatório'
-            digito2 = rand()%6+1; // gerar segundo algarismo 'aleatório'
-            digito3 = rand()%6+1; // gerar terceiro algarismo 'aleatório'
-            digito4 = rand()%6+1; // gerar quarto algarismo 'aleatório'
-          } while (digito1 == digito2 || digito1 == digito3 || digito1 == digito4 || digito2 == digito3 || digito2 == digito4 || digito3 == digito4); // garantir que não hajam algarismos repetidos
+            digit1 = rand() % 6+1; // Generate fisrt 'random' algarism
+            digit2 = rand() % 6+1; // Generate second 'random' algarism
+            digit3 = rand() % 6+1; // Generate third 'random' algarism
+            digit4 = rand() % 6+1; // Generate fourth 'random' algarism
+          } while (digit1 == digit2 || digit1 == digit3 || digit1 == digit4 || digit2 == digit3 || digit2 == digit4 || digit3 == digit4); // Ensure there are no repeated digits
           
-          int contador;
-          for (contador = 1; contador <= 10; contador++) {
+          int counter;
+          for (counter = 1; counter <= 10; counter++) {
             cc = 0;
-            ce = 0;
+            cw = 0;
 
-            cout << "\n\nDigite sua " << contador << "ª tentativa: ";
-            cin >> tentativa;
+            cout << "\n\nDigit your " << counter << "º attempt: ";
+            cin >> attempt;
 
-            d1 = tentativa / 1000;
-            d2 = tentativa / 100 % 10;
-            d3 = tentativa / 10 % 10;
-            d4 = tentativa % 10;
+            a1 = attempt / 1000;
+            a2 = attempt / 100 % 10;
+            a3 = attempt / 10 % 10;
+            a4 = attempt % 10;
 
-            if (digito1 == d1 && digito2 == d2 && digito3 == d3 && digito4 == d4) {
-              ganhou = 1;
-              contador = 11;
+            if (digit1 == a1 && digit2 == a2 && digit3 == a3 && digit4 == a4) {
+              won = 1;
+              counter = 11;
             }
 
-            if (contador > 0) {
-              cout << "Restam " << 10 - contador << " tentativas.\n";
+            if (counter > 0) {
+              cout << 10 - counter << " attemps remaining.\n";
             } else {
-              ganhou = -1;
+              won = -1;
               break;
             }
 
-            if (digito1 == d1) {
+            if (digit1 == a1) {
               cc++;
             }
 
-            if (digito2 == d2) {
+            if (digit2 == a2) {
               cc++;
             }
 
-            if (digito3 == d3) {
+            if (digit3 == a3) {
               cc++;
             }
 
-            if (digito4 == d4) {
+            if (digit4 == a4) {
               cc++;
             }
 
-            if (digito1 == d2 || digito1 == d3 || digito1 == d4) {
-              ce++;
+            if (digit1 == a2 || digit1 == a3 || digit1 == a4) {
+              cw++;
             }
 
-            if (digito2 == d1 || digito2 == d3 || digito2 == d4) {
-              ce++;
+            if (digit2 == a1 || digit2 == a3 || digit2 == a4) {
+              cw++;
             }
 
-            if (digito3 == d1 || digito3 == d2 || digito3 == d4) {
-              ce++;
+            if (digit3 == a1 || digit3 == a2 || digit3 == a4) {
+              cw++;
             }
 
-            if (digito4 == d1 || digito4 == d2 || digito4 == d3) {
-              ce++;
+            if (digit4 == a1 || digit4 == a2 || digit4 == a3) {
+              cw++;
             }
 
-            cout << cc << " dígitos estão corretos.\n";
-            cout << ce << " dígitos estão corretos, porém, na posição errada.\n";
+            cout << cc << " digit are correct.\n";
+            cout << cw << " digit are correct, but, at wrong position.\n";
           }
 
-          if (ganhou == 1) {
-            cout<<" █████ ████  ██████  █████ ████    █████ ███ █████ ████  ████████\n"
-                  "░░███ ░███  ███░░███░░███ ░███    ░░███ ░███░░███  ░░██░ ░███░░███\n"
-                  " ░███ ░███ ░███ ░███ ░███ ░███     ░███ ░███ ░███  ░███  ░███ ░███\n"
-                  " ░███ ░███ ░███ ░███ ░███ ░███     ░░███████████   ░███  ░███ ░███\n"
-                  " ░░███████ ░░██████  ░░████████     ░░████░████    █████ ████ █████\n"
-                  "  ░░░░░███  ░░░░░░    ░░░░░░░░       ░░░░ ░░░░    ░░░░░ ░░░░░░░░░\n"
-                  "  ███ ░███\n"
-                  " ░░██████\n"
-                  "  ░░░░░░\n\n\n";
+          if (won == 1) {
+            cout <<" █████ ████  ██████  █████ ████    █████ ███ █████ ████  ████████\n"
+                   "░░███ ░███  ███░░███░░███ ░███    ░░███ ░███░░███  ░░██░ ░███░░███\n"
+                   " ░███ ░███ ░███ ░███ ░███ ░███     ░███ ░███ ░███  ░███  ░███ ░███\n"
+                   " ░███ ░███ ░███ ░███ ░███ ░███     ░░███████████   ░███  ░███ ░███\n"
+                   " ░░███████ ░░██████  ░░████████     ░░████░████    █████ ████ █████\n"
+                   "  ░░░░░███  ░░░░░░    ░░░░░░░░       ░░░░ ░░░░    ░░░░░ ░░░░░░░░░\n"
+                   "  ███ ░███\n"
+                   " ░░██████\n"
+                   "  ░░░░░░\n\n\n";
           
-            cout << "Digite qualquer número para voltar ao menu";
-            cin >> cont;
+            cout << "Type any character to return to the menu";
+            cin >> temp;
             system(CLEAR);
             
-          } else if (ganhou == -1 || ganhou == 0) {
+          } else if (won == -1 || won == 0) {
             cout << endl;  
             cout << "   █████████    █████████   ██████   ██████ ██████████\n"
                     "  ███░░░░░███  ███░░░░░███ ░░██████ ██████ ░░███░░░░░█\n"
@@ -144,30 +150,29 @@ int main(){
                     " ░░░███████░      ░░███      ██████████ █████   █████ \n"
                     "  ░░░░░░░         ░░░      ░░░░░░░░░░ ░░░░░   ░░░░░   \n\n";
           
-              cout << "Digite qualquer número para voltar ao menu";
-              cin >> cont;
+              cout << "Type any character to return to the menu";
+              cin >> temp;
               system(CLEAR);
           }
           break;
       
         case 2:
-          cout << "\nDesenvolvedores:    Daniel Henrique da Silva\n"
-                  "                    Gabriel Henrique da Silva\n"
-                  "                    Jorge Luiz Siemann Pereira\n"
-                  "                    Lucas dos Santos Luckow\n"
-                  "Professor:          Prof. Rafael Ballotin Martins\n"
-                  "Matéria:            Algoritmos e Programação\n"
-                  "Maio/2023\n\n";
-          cout << "Digite qualquer número para voltar ao menu\n";
-          cin >> cont;
+          cout << "\nDevelopers:    Daniel Henrique da Silva\n"
+                  "               Gabriel Henrique da Silva\n"
+                  "               Jorge Luiz Siemann Pereira\n"
+                  "               Lucas dos Santos Luckow\n"
+                  "Professor:     Prof. Rafael Ballotin Martins\n"
+                  "Course:        Algorithms and Programming I\n"
+                  "May/2023\n\n";
+          cout << "Type any character to return to the menu";
+          cin >> temp;
           system(CLEAR);
           break;
 
         case 3:
           break;
-        } while (ganhou != 0);
+        } while (won != 0);
     } 
   } while (menu !=3);
   return 0;
 }
-
