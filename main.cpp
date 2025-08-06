@@ -29,7 +29,7 @@ int main(){
             " ░███ ░░░  ░███  ░███░░░░░███  ░░░░░░░░███    ░███     ░███░░█    ░███░░░░░███    ░███ ░░░  ░███  ░███  ░███ ░░██████  ░███    ░███\n"
             " ░███      ░███  ░███    ░███  ███    ░███    ░███     ░███ ░   █ ░███    ░███    ░███      ░███  ░███  ░███  ░░█████  ░███    ███ \n"
             " █████     █████ █████   █████░░█████████     █████    ██████████ █████   █████    █████     █████ █████ █████  ░░█████ ██████████ \n"   
-            "░░░░░     ░░░░░ ░░░░░   ░░░░░  ░░░░░░░░░     ░░░░░    ░░░░░░░░░░ ░░░░░   ░░░░░    ░░░░░     ░░░░░ ░░░░░ ░░░░░    ░░░░░ ░░░░░░░░░░  \n\n"
+            "░░░░░     ░░░░░ ░░░░░   ░░░░░  ░░░░░░░░░     ░░░░░    ░░░░░░░░░░ ░░░░░   ░░░░░    ░░░░░     ░░░░░ ░░░░░ ░░░░░    ░░░░░ ░░░░░░░░░░  \n\n";
                                                                                
                                                                                
                                                                                
@@ -127,7 +127,7 @@ int main(){
                    " ░░██████\n"
                    "  ░░░░░░\n\n\n";
           
-            cout << "Type any character to return to the menu";
+            cout << "Type any character to return to the menu...";
             cin >> temp;
             system(CLEAR);
             
@@ -150,7 +150,7 @@ int main(){
                     " ░░░███████░      ░░███      ██████████ █████   █████ \n"
                     "  ░░░░░░░         ░░░      ░░░░░░░░░░ ░░░░░   ░░░░░   \n\n";
           
-              cout << "Type any character to return to the menu";
+              cout << "Type any character to return to the menu...";
               cin >> temp;
               system(CLEAR);
           }
@@ -164,7 +164,7 @@ int main(){
                   "Professor:     Prof. Rafael Ballotin Martins\n"
                   "Course:        Algorithms and Programming I\n"
                   "May/2023\n\n";
-          cout << "Type any character to return to the menu";
+          cout << "Type any character to return to the menu...";
           cin >> temp;
           system(CLEAR);
           break;
